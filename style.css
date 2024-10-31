@@ -1,0 +1,48 @@
+
+
+
+
+
+
+
+
+
+
+
+body {
+    background-color: rgb(161, 161, 161);
+}
+
+.container {
+    height: 1000px;
+    width: 700px;
+    text-align:center;
+    font-size: 25px;
+    border: 10px black;
+    background-color: #ffffff;
+    margin: auto;
+    margin-top: 5%;
+}
+
+.howtoplay {
+    width: 150px;
+    margin: auto;
+    margin-top: -3%;
+    text-align: center;
+    font-size:x-large;
+    text-decoration: underline;
+}
+
+h1 {
+    padding-top: 2rem;
+}
+
+p {
+    padding-top: 0.3rem;
+}
+
+.numberrange {
+    text-align: left;
+    padding-top: 2rem;
+    padding-left: 3rem;
+}
