@@ -1,43 +1,64 @@
-// Ln3 finds the HTML element with the id of "btn" and assigns it to the variable btn.
+const url = "https://kool.krister.ee/chat/GuessTheNumber";
 
 let btn = document.getElementById('btn');
 
-// Similar to the first one, Ln7 targets an HTML element with an id of "outputtext".
+let userInput = document.getElementById('userInput');
 
 let output = document.getElementById('outputtext');
 
-// Math.random generates a number between 0 and 1. Math.random * 100 multiplies the 0-1 number by 100.
-// Math.floor rounds the number down to the nearest whole number.
-
 let number = Math.floor(Math.random() * 100);
 
-// When the 'click' event is triggered (when the button is clicked) the function stored in the addEventListener will run.
+btn.addEventListener('click', function () {
+    checkAnswer()
+})
 
-btn.addEventListener('click', function(){
+userInput.addEventListener('keypress', function (event) {
 
-// Next it tries to get the value of an input element with the id 'userInput'.
+    if (event.key === "Enter") {
+        checkAnswer()
+    }
 
-    let input= parseInt(document.getElementById('userInput').value);
-    
-// If users input is equal to the number given a message will display telling you that your guess is correct.
+});
+
+function checkAnswer() {
+
+    let input = parseInt(userInput.value);
 
     console.log("values", input, number)
-    if (input == number){
+    if (input == number) {
         output.innerHTML = `You guessed right, your number was ${number}!`
 
         number = Math.floor(Math.random() * 100);
+        
+       let score = score + 1
 
-// If the users input is smaller than the given number a message will display telling us so.
+        const message = { number: number  };
+        fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(message),
+        });
 
-    } else if (input < number){
+
+    } else if (input < number) {
         output.innerHTML = "You guessed too low!"
     }
 
-// If the users input is larger than the number given, a message will display telling us so.
-
-    else if (input > number){
+    else if (input > number) {
         output.innerHTML = "You guessed too high!"
     }
-});
+}
 
+async function fetchScore() {
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data)
 
+    const score = document.getElementById("score");
+    score.innerHTML = "<p>Score: 2</p>";
+
+    
+}
+fetchScore()
