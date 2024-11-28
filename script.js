@@ -10,10 +10,7 @@ let number = Math.floor(Math.random() * 100);
 
 let score = 0
 
-let userName = prompt("Please enter your name so that I can save your score:");
-
-fetch(url)
-
+let userName = prompt("Please enter your unique username so that I can save your score. Make sure to use the same unique username in the future if you'd like to get your previous score back.");
 
 btn.addEventListener('click', function () {
     checkAnswer()
@@ -69,13 +66,14 @@ async function fetchScore() {
 
     console.log(found)
 
-    const score = document.getElementById("score");
-    score.innerHTML = "<p>Score: 0</p>";
+    const scoreEl = document.getElementById("score");
+    scoreEl.innerHTML = "<p>Score: 0</p>";
 
-    // do something here
+    
     
     if (found) {
-        score.innerHTML = `Score: ${found.number}`;
+        scoreEl.innerHTML = `Score: ${found.number}`;
+        score = found.number
     }
 
 
