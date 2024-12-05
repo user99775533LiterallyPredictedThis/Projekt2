@@ -1,14 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
 body {
     background-color: #101010;
 }
@@ -28,20 +17,19 @@ body {
 .howtoplay {
     width: 150px;
     margin: auto;
-    margin-top: -3%;
+    margin-top: -2vw;
     text-align: center;
     font-size:x-large;
-    text-decoration: underline;
     color:#196412;
 }
 
 h1 {
-    padding-top: 3rem;
+    padding-top: 2vw;
     color:rgb(33, 209, 13);
 }
 
 p {
-    padding-top: 0.3rem;
+    padding-top: 1vw;
     color:rgb(33, 209, 13);
 }
 
